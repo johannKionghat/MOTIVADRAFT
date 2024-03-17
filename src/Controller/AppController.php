@@ -21,19 +21,19 @@ class AppController extends AbstractController
             $message='';
             $data=$form->getData();
 
-            $client = OpenAI::client('yourAPI');
+            // $client = OpenAI::client('yourAPI');
 
-            $response = $client->chat()->create([
-                'model' => 'gpt-3.5-turbo',
-                'messages' => [
-                    ['role' => 'user', 'content' => 'Mon nom est' . $data['nom'].' '.$data['prenom'].'.',],
-                    ['role' => 'user', 'content' => 'Diplome' . $data['diplome'].'.',],
-                    ['role' => 'user', 'content' => 'Entreprise Cible : ' . $data['entreprise'].'.',],
-                    ['role' => 'user', 'content' => 'Poste cible : ' . $data['poste'].'.',],
-                    ['role' => 'user', 'content' => 'Annonce' . $data['annonce'].'.',],
-                    ['role' => 'user', 'content' => 'Ecrit une lettre de motivation convaincante en markdown, profesionnelle et personnalisée.',]
-                ],
-            ]);
+            // $response = $client->chat()->create([
+            //     'model' => 'gpt-3.5-turbo',
+            //     'messages' => [
+            //         ['role' => 'user', 'content' => 'Mon nom est' . $data['nom'].' '.$data['prenom'].'.',],
+            //         ['role' => 'user', 'content' => 'Diplome' . $data['diplome'].'.',],
+            //         ['role' => 'user', 'content' => 'Entreprise Cible : ' . $data['entreprise'].'.',],
+            //         ['role' => 'user', 'content' => 'Poste cible : ' . $data['poste'].'.',],
+            //         ['role' => 'user', 'content' => 'Annonce' . $data['annonce'].'.',],
+            //         ['role' => 'user', 'content' => 'Ecrit une lettre de motivation convaincante en markdown, profesionnelle et personnalisée.',]
+            //     ],
+            // ]);
             
             global $message; 
             $message = $response->choices[0]->message->content;
