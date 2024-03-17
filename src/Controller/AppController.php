@@ -21,7 +21,7 @@ class AppController extends AbstractController
             $message='';
             $data=$form->getData();
 
-            $client = OpenAI::client('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');
+            $client = OpenAI::client('yourAPI');
 
             $response = $client->chat()->create([
                 'model' => 'gpt-3.5-turbo',
